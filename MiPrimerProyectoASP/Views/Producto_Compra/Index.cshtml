@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MiPrimerProyectoASP.Models.producto_compra>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_compra)
+        </th>
+        <th>
+            Producto
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_compra)
+            </td>
+            <td>
+                @MiPrimerProyectoASP.Controllers.Producto_CompraController.Nombreproducto(item.id_producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+            </td>
+        </tr>
+    }
+
+</table>
+@section scripts{
+    <script>
+    $(".linkDelete").click(function (event) {
+        if (!confirm("Esta seguro de eliminar?")) {
+            event.preventDefault();
+        }
+    });
+    </script>
+}

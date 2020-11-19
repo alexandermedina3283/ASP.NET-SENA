@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MiPrimerProyectoASP.Models.CompraCliente>
+
+@{
+    ViewBag.Title = "DetalleCompra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var query = Model;
+}
+
+<h2> Detalle compra cliente</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Fecha compra</th>
+            <th>Total</th>
+            <th>Cliente</th>
+            <th>Identificacion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.fechaCompra)</td>
+                    <td>@Html.DisplayFor(modelItem => item.totalCompra)</td>
+                    <td>@Html.DisplayFor(modelItem => item.nombreCliente)</td>
+                    <td>@Html.DisplayFor(modelItem => item.documentoCliente)</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
