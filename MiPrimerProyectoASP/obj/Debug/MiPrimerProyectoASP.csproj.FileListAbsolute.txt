@@ -113,3 +113,4 @@ C:\Users\alexa\source\repos\MiPrimerProyectoASP\MiPrimerProyectoASP\obj\Debug\Mi
 C:\Users\alexa\source\repos\MiPrimerProyectoASP\MiPrimerProyectoASP\obj\Debug\MiPrimerProyectoASP.csproj.CopyComplete
 C:\Users\alexa\source\repos\MiPrimerProyectoASP\MiPrimerProyectoASP\obj\Debug\MiPrimerProyectoASP.dll
 C:\Users\alexa\source\repos\MiPrimerProyectoASP\MiPrimerProyectoASP\obj\Debug\MiPrimerProyectoASP.pdb
+C:\Users\alexa\source\repos\MiPrimerProyectoASP\MiPrimerProyectoASP\bin\Rotativa.dll
