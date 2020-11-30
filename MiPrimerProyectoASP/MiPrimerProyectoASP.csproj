@@ -321,6 +321,7 @@
     <Content Include="Views\Proveedor\DetalleProveedorProducto.cshtml" />
     <Content Include="Views\Compra\DetalleCompra.cshtml" />
     <Content Include="Views\Proveedor\ReporteProductos.cshtml" />
+    <Content Include="Views\Proveedor\uploadCSV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

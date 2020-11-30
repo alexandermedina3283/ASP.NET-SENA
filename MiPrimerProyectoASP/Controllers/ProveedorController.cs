@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -162,6 +163,61 @@ namespace MiPrimerProyectoASP.Controllers
         public ActionResult ImprimirDetalleProveedor()
         {
             return new ActionAsPdf("DetalleProveedorProducto") { FileName = "ReporteProveedor.pdf" };
+        }
+
+        public ActionResult uploadCSV() 
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult uploadCSV(HttpPostedFileBase filename) 
+        {
+            string filePath = string.Empty;
+            if(filename != null) 
+            {
+                string path = Server.MapPath("~/Uploads/");
+                if (!Directory.Exists(path)) 
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                filePath = path + Path.GetFileName(filename.FileName);
+                string extension = Path.GetExtension(filename.FileName);
+                filename.SaveAs(filePath);
+
+                string csvData = System.IO.File.ReadAllText(filePath);
+                foreach(string row in csvData.Split('\n')) 
+                {
+
+                    if (!string.IsNullOrEmpty(row)) 
+                    {
+                        var newProveedor = new proveedor
+                        {
+                            nombre = row.Split(';')[0],
+                            direccion = row.Split(';')[1],
+                            telefono = row.Split(';')[2],
+                            nombre_contacto = row.Split(';')[3],
+                        }; 
+
+                        using (var db = new inventarioEntities()) 
+                        {
+                            db.proveedor.Add(newProveedor);
+                            db.SaveChanges();
+                        
+                        }
+                   
+                    }
+                
+                
+                
+                }
+
+
+            }
+
+            return View();
         }
 
     }
