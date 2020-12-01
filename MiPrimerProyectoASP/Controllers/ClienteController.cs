@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MiPrimerProyectoASP.Models;
+using Rotativa;
 
 namespace MiPrimerProyectoASP.Controllers
 {
@@ -192,6 +193,18 @@ namespace MiPrimerProyectoASP.Controllers
             return View();
         }
 
+        public ActionResult ReporteClientes()
+        {
+            using (var db = new inventarioEntities())
+            {
+                return View(db.cliente.ToList());
+            }
+        }
+
+        public ActionResult ImprimirReporteClientes()
+        {
+            return new ActionAsPdf("ReporteClientes") { FileName = "Reporte.pdf" };
+        }
 
     }
 
