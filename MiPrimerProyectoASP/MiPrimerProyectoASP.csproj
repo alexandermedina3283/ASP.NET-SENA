@@ -322,6 +322,7 @@
     <Content Include="Views\Compra\DetalleCompra.cshtml" />
     <Content Include="Views\Proveedor\ReporteProductos.cshtml" />
     <Content Include="Views\Proveedor\uploadCSV.cshtml" />
+    <Content Include="Views\Cliente\uploadCSVcliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
